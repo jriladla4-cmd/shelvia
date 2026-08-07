@@ -80,6 +80,17 @@ function loadAppData() {
   if (saved) {
     try {
       const parsed = JSON.parse(saved);
+      // Auto-fix: if the saved data has invalid/empty poems, wipe it out
+      if (parsed.poems) {
+        const hasValidPoems = Array.isArray(parsed.poems) && 
+                              parsed.poems.length > 0 && 
+                              parsed.poems.every(item => item && typeof item.quote === 'string');
+        if (!hasValidPoems) {
+          localStorage.removeItem("ruangKataData");
+          location.reload();
+          return;
+        }
+      }
       appData = { ...appData, ...parsed };
     } catch (e) {
       console.error("Failed to parse saved data:", e);
