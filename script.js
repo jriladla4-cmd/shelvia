@@ -85,6 +85,10 @@ function loadAppData() {
       console.error("Failed to parse saved data:", e);
     }
   }
+  // Safeguard: Ensure poems array is populated
+  if (!appData.poems || !Array.isArray(appData.poems) || appData.poems.length === 0) {
+    appData.poems = [...DEFAULT_POEMS];
+  }
   updateDOMData();
 }
 
@@ -107,7 +111,7 @@ function updateDOMData() {
 
   // Update Hero Title
   const heroTitleEl = document.getElementById("displayHeroTitle");
-  if (heroTitleEl) {
+  if (heroTitleEl && heroTitleEl.childNodes.length > 0) {
     heroTitleEl.childNodes[0].nodeValue = appData.heroTitle + " ";
   }
 
@@ -116,19 +120,30 @@ function updateDOMData() {
   if (letterEl) letterEl.innerText = appData.letterContent;
 
   // Update Form inputs
-  document.getElementById("inputTargetName").value = appData.targetName;
-  document.getElementById("inputSenderName").value = appData.senderName;
-  document.getElementById("inputHeroTitle").value = appData.heroTitle;
-  document.getElementById("inputLetterContent").value = appData.letterContent;
-  document.getElementById("inputTargetDate").value = appData.targetDate;
+  const inputTargetName = document.getElementById("inputTargetName");
+  if (inputTargetName) inputTargetName.value = appData.targetName;
+
+  const inputSenderName = document.getElementById("inputSenderName");
+  if (inputSenderName) inputSenderName.value = appData.senderName;
+
+  const inputHeroTitle = document.getElementById("inputHeroTitle");
+  if (inputHeroTitle) inputHeroTitle.value = appData.heroTitle;
+
+  const inputLetterContent = document.getElementById("inputLetterContent");
+  if (inputLetterContent) inputLetterContent.value = appData.letterContent;
+
+  const inputTargetDate = document.getElementById("inputTargetDate");
+  if (inputTargetDate) inputTargetDate.value = appData.targetDate;
 
   // Format Display Target Date
-  const dateObj = new Date(appData.targetDate);
-  const formattedDate = dateObj.toLocaleDateString("id-ID", {
-    day: "numeric", month: "long", year: "numeric"
-  });
-  const dateDisplay = document.getElementById("displayCountdownDate");
-  if (dateDisplay) dateDisplay.textContent = formattedDate;
+  if (appData.targetDate) {
+    const dateObj = new Date(appData.targetDate);
+    const formattedDate = dateObj.toLocaleDateString("id-ID", {
+      day: "numeric", month: "long", year: "numeric"
+    });
+    const dateDisplay = document.getElementById("displayCountdownDate");
+    if (dateDisplay) dateDisplay.textContent = formattedDate;
+  }
 }
 
 // ==========================================
