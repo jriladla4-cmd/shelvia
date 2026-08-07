@@ -1,0 +1,12 @@
+{
+  "name": "shelvia-website",
+  "version": "1.0.0",
+  "description": "Romantic website for Shelvia",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
