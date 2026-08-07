@@ -507,6 +507,114 @@ lightboxModal.addEventListener("click", (e) => {
 });
 
 // ==========================================
+// EXPORT TO MS WORD
+// ==========================================
+const exportWordBtn = document.getElementById("exportWordBtn");
+if (exportWordBtn) {
+  exportWordBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    playSoftChime();
+    
+    const targetName = appData.targetName;
+    const senderName = appData.senderName;
+    const letterContent = appData.letterContent;
+    const dateObj = new Date(appData.targetDate);
+    const formattedDate = dateObj.toLocaleDateString("id-ID", {
+      day: "numeric", month: "long", year: "numeric"
+    });
+    
+    // Create elegant HTML template for Microsoft Word
+    const htmlContent = `
+      <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+      <head>
+        <title>Surat Digital Untuk ${targetName}</title>
+        <!--[if gte mso 9]>
+        <xml>
+          <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>100</w:Zoom>
+          </w:WordDocument>
+        </xml>
+        <![endif]-->
+        <style>
+          body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #2b1810;
+            line-height: 1.8;
+            background-color: #fffdfa;
+            padding: 40px;
+          }
+          .letter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 2px solid #fecdd3;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 10px;
+          }
+          .header {
+            border-bottom: 2px dashed #fecdd3;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #fb7185;
+            font-size: 14pt;
+          }
+          .salutation {
+            font-size: 18pt;
+            color: #f43f5e;
+            font-weight: bold;
+            margin-bottom: 20px;
+          }
+          .content {
+            font-size: 12pt;
+            margin-bottom: 30px;
+          }
+          .signature {
+            text-align: right;
+            font-size: 16pt;
+            color: #fb7185;
+            margin-top: 30px;
+            font-style: italic;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="letter-container">
+          <div class="header">
+            ${formattedDate}
+          </div>
+          <div class="salutation">
+            Untuk Jiwa yang Paling Spesial, ${targetName} ✨
+          </div>
+          <div class="content">
+            ${letterContent.replace(/\n/g, '<br>')}
+          </div>
+          <div class="signature">
+            Dengan segenap rindu,<br>
+            <strong>${senderName}</strong> 🌹
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
+    
+    const blob = new Blob(['\ufeff' + htmlContent], {
+      type: 'application/msword'
+    });
+    
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `Surat_Digital_${targetName.replace(/\s+/g, '_')}.doc`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+}
+
+// ==========================================
 // COUNTDOWN TIMER
 // ==========================================
 function updateCountdown() {
