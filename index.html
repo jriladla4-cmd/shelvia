@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruang Kata Untukmu 🌹 - Pesan Puitis & Spesial</title>
+  <!-- Open Graph Meta Tags for WA & Social Media Sharing -->
+  <meta property="og:title" content="Ruang Kata Untukmu 🌹 - Khusus Untuk Shelvia">
+  <meta property="og:description" content="Sebuah ruang kata puitis, galeri kenangan, dan surat digital khusus diciptakan untuk satu jiwa yang paling teristimewa.">
+  <meta property="og:image" content="images/shelvia.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ruang Kata Untukmu 🌹">
+  <meta name="twitter:description" content="Pesan puitis & galeri kenangan spesial untuk Shelvia.">
+  <meta name="twitter:image" content="images/shelvia.png">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Animated Canvas Background -->
+  <canvas id="canvas-bg"></canvas>
+
+  <!-- Top Navigation Header -->
+  <nav class="navbar">
+    <a href="#hero" class="brand-logo">
+      <i class="fa-solid fa-heart"></i> Ruang Kata
+    </a>
+    
+    <ul class="nav-links">
+      <li><a href="#hero">Beranda</a></li>
+      <li><a href="#surat">Surat Digital</a></li>
+      <li><a href="#puisi">Galeri Puisi</a></li>
+      <li><a href="#kenangan">Kenangan</a></li>
+      <li><a href="#ajak-main">Ajak Jalan 🎡</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="muteToggleBtn" title="Bisukan / Nyalakan Musik Latar">
+        <i class="fa-solid fa-volume-high" id="muteIcon"></i>
+      </button>
+      <button class="icon-btn" id="themeToggleBtn" title="Ganti Mode Gelap/Terang">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button class="icon-btn mobile-toggle" id="mobileNavToggle" title="Menu Navigasi">
+        <i class="fa-solid fa-bars-staggered"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Romantic Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu-header">
+      <a href="#hero" class="brand-logo">
+        <i class="fa-solid fa-heart"></i> Ruang Kata
+      </a>
+      <button class="icon-btn" id="closeMobileMenuBtn" title="Tutup Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu-body">
+      <a href="#hero" class="mobile-menu-item">
+        <i class="fa-solid fa-house"></i>
+        <span>Beranda</span>
+      </a>
+      <a href="#surat" class="mobile-menu-item">
+        <i class="fa-solid fa-envelope-open-text"></i>
+        <span>Surat Digital Rahasia</span>
+      </a>
+      <a href="#puisi" class="mobile-menu-item">
+        <i class="fa-solid fa-feather-pointed"></i>
+        <span>Galeri Puisi & Quotes</span>
+      </a>
+      <a href="#kenangan" class="mobile-menu-item">
+        <i class="fa-solid fa-camera-retro"></i>
+        <span>Galeri Kenangan</span>
+      </a>
+      <a href="#ajak-main" class="mobile-menu-item">
+        <i class="fa-solid fa-ferris-wheel"></i>
+        <span>Toples Ajak Jalan 🎡</span>
+      </a>
+    </div>
+
+    <div class="mobile-menu-footer">
+      <p>Diciptakan khusus untuk <strong class="displayTargetName">Shelvia</strong> 🌸</p>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero reveal-on-scroll" id="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-badge">
+          <i class="fa-solid fa-sparkles"></i> Ruang Puitis Khusus Untukmu
+        </div>
+        <h1 class="hero-title" id="displayHeroTitle">
+          Untukmu, Ruang Kata Ini Tercipta.
+          <span class="hero-name" id="displayTargetName">Shelvia</span>
+        </h1>
+        <p class="hero-subtitle" id="displayHeroSubtitle">
+          "Setiap huruf adalah denyut, setiap baris adalah napas, dan semua menuju pada satu nama yang paling indah di semesta."
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="#surat" class="btn-primary">
+            <i class="fa-solid fa-envelope-open-text"></i> Buka Surat Digital
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Surat Digital Section -->
+  <section id="surat" class="reveal-on-scroll">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-subtitle">Pesan Tertulis dari Hati</span>
+        <h2 class="section-main-heading">Surat Digital Rahasia</h2>
+      </div>
+
+      <div class="envelope-container">
+        <!-- Interactive Envelope -->
+        <div class="envelope-wrapper" id="envelopeWrapper">
+          <div class="envelope" id="envelopeCard">
+            <div class="envelope-stamp">
+              <i class="fa-solid fa-heart"></i>
+              <span style="font-size: 0.65rem; margin-top: 4px; font-weight: bold;">LOVE</span>
+            </div>
+            <div style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-dark); margin-top: 20px;">
+              Khusus Untuk: <strong class="displayTargetName">Shelvia</strong>
+            </div>
+            <div class="envelope-seal" id="envelopeSeal">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <p class="envelope-hint">Klik segel merah untuk membuka isi surat...</p>
+          </div>
+
+          <!-- Opened Letter Paper -->
+          <div class="letter-paper" id="letterPaper">
+            <div class="letter-header">
+              <span class="letter-date" id="displayLetterDate">7 Agustus 2026</span>
+              <button class="icon-btn" id="closeLetterBtn" style="width: 32px; height: 32px; font-size: 0.9rem;" title="Tutup Surat">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="letter-salutation">
+              Untuk Jiwa yang Paling Spesial, <span class="displayTargetName">Shelvia</span> ✨
+            </div>
+            <div class="letter-content" id="displayLetterContent">
+              Aku menulis halaman ini bukan untuk dunia, tapi untuk satu jiwa yang membuat semesta terasa indah.
+
+              Setiap kata adalah denyut, setiap baris adalah napas, semua menuju satu nama: kamu. Sejak awal kehadiranmu, dunia terasa lebih hangat dan bermakna. Senyummu adalah cahaya yang menyalakan seluruh halaman ini, dan tawamu adalah lagu terindah yang selalu ingin kudengar berulang kali.
+
+              Jika malam punya bintang untuk menerangi gelapnya, maka hatiku punya kamu untuk menghiasi setiap detik kehidupan ini.
+
+              Semoga halaman kecil ini selalu menjadi saksi dan rumah hangat bagi perasaan yang tak pernah selesai.
+            </div>
+            <div class="letter-signature">
+              Dengan segenap rindu,<br>
+              <span id="displaySenderName">Dariku yang Mengagumimu</span> 🌹
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeri Puisi & Quotes Section -->
+  <section id="puisi" class="reveal-on-scroll">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-subtitle">Larik & Bait Perasaan</span>
+        <h2 class="section-main-heading">Galeri Kata Puitis</h2>
+      </div>
+
+      <div class="poetry-grid" id="poetryGrid">
+        <!-- Poetry Cards rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeri Kenangan Section -->
+  <section id="kenangan" class="reveal-on-scroll">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-subtitle">Potret Dalam Ingatan</span>
+        <h2 class="section-main-heading">Galeri Kenangan Indah</h2>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Polaroid Photo Cards -->
+        <div class="polaroid-card" style="--rotation: -3;" data-img="images/shelvia.png" data-caption="Pesona cantikmu yang selalu menghiasi hari-hari 💖">
+          <div class="polaroid-img-wrapper">
+            <img src="images/shelvia.png" alt="Shelvia Cantik" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">Pesona Cantikmu 💖</div>
+        </div>
+
+        <div class="polaroid-card" style="--rotation: 2;" data-img="images/shelviaa.png" data-caption="Manisnya senyumanmu yang selalu menyejukkan hati 🌸">
+          <div class="polaroid-img-wrapper">
+            <img src="images/shelviaa.png" alt="Shelvia Manis" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">Manisnya Senyumanmu 🌸</div>
+        </div>
+
+        <div class="polaroid-card" style="--rotation: -2;" data-img="images/sunset.png" data-caption="Senyummu adalah cahaya yang menyalakan seluruh halaman ini.">
+          <div class="polaroid-img-wrapper">
+            <img src="images/sunset.png" alt="Senja Bersama" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">Senja & Bahagiamu 🌅</div>
+        </div>
+
+        <div class="polaroid-card" style="--rotation: 3;" data-img="images/garden.png" data-caption="Langkahmu adalah irama yang membuat waktu terasa indah.">
+          <div class="polaroid-img-wrapper">
+            <img src="images/garden.png" alt="Taman Bunga" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">Indah Bagai Bunga 🌸</div>
+        </div>
+
+        <div class="polaroid-card" style="--rotation: -3;" data-img="images/starlit.png" data-caption="Jika malam punya bintang, maka hatiku punya kamu.">
+          <div class="polaroid-img-wrapper">
+            <img src="images/starlit.png" alt="Malam Bintang" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">Di Bawah Bintang ✨</div>
+        </div>
+
+        <div class="polaroid-card" style="--rotation: 2;" data-img="images/cozy.png" data-caption="Aku simpan setiap detik sederhana bersamamu di sini.">
+          <div class="polaroid-img-wrapper">
+            <img src="images/cozy.png" alt="Momen Hangat" class="polaroid-img">
+          </div>
+          <div class="polaroid-caption">Kehangatan Bersamamu ☕</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toples Ajak Jalan Rahasia Section -->
+  <section id="ajak-main" class="reveal-on-scroll">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-subtitle">Agenda Spesial Bersama</span>
+        <h2 class="section-main-heading">Toples Ajak Jalan Rahasia 🎡</h2>
+      </div>
+
+      <div class="countdown-card" style="padding: 40px 24px;">
+        <div class="reasons-box" style="margin-top: 0;">
+          <h4 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--text-dark);">
+            <i class="fa-solid fa-cookie-bite" style="color: var(--accent-gold);"></i> Undangan Jalan-Jalan Manis
+          </h4>
+          <p style="font-size: 0.95rem; color: var(--text-subtle); margin-top: 6px;">
+            Tekan tombol di bawah untuk mengambil 1 ide jalan-jalan manis dariku khusus untuk <strong class="displayTargetName">Shelvia</strong>!
+          </p>
+
+          <div class="reason-display" id="reasonDisplay">
+            "Klik tombol di bawah untuk mengambil ide jalan-jalan hari ini..."
+          </div>
+
+          <button class="btn-primary" id="pickReasonBtn" style="padding: 14px 32px; font-size: 1.05rem;">
+            <i class="fa-solid fa-ticket"></i> Ambil Ide Jalan-Jalan 🎡
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Balasan Cinta (Interactive Two-Way Response) -->
+  <section id="balasan" class="reveal-on-scroll">
+    <div class="container">
+      <div class="reply-card">
+        <div class="hero-badge" style="background: rgba(244,63,94,0.15);">
+          <i class="fa-solid fa-heart-circle-check"></i> Interaksi Dua Arah
+        </div>
+        <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--text-dark); margin-bottom: 12px;">
+          Bagaimana Perasaanmu Membaca Ini? 💌
+        </h2>
+        <p style="color: var(--text-subtle); max-width: 600px; margin: 0 auto 28px auto; font-size: 1.05rem;">
+          Jika halaman ini membuat harimu lebih hangat, kamu bisa mengirimkan senyuman atau pesan balasan manis dengan satu sentuhan!
+        </p>
+
+        <button class="btn-primary" id="openReplyBtn" style="padding: 16px 36px; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(244,63,94,0.4);">
+          <i class="fa-solid fa-paper-plane"></i> Aku Juga Senang Menerima Ini 💌
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Heart Burst Widget -->
+  <div class="send-love-widget" id="sendLoveWidget" title="Sentuh untuk mengirim cinta 💖">
+    <div class="love-counter-badge" id="loveCounterBadge">0 ♥</div>
+    <button class="love-burst-btn" id="loveBurstBtn">
+      <i class="fa-solid fa-heart"></i>
+    </button>
+  </div>
+
+  <!-- Interactive Reply Modal -->
+  <div class="modal-overlay" id="replyModal">
+    <div class="modal-card" style="text-align: center;">
+      <div class="modal-header">
+        <h3 class="modal-title" style="margin: 0 auto; color: var(--primary-pink);">Balasan Cinta Untuknya 💌</h3>
+        <button class="close-modal-btn" id="closeReplyModalBtn">&times;</button>
+      </div>
+      <p style="color: var(--text-subtle); margin: 16px 0 24px 0;">
+        Pilih bagaimana kamu ingin membalas pesan manis ini:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <a href="https://wa.me/?text=Makasih%20banyak%20ya%20buat%20website%20puitisnya%20%E2%9D%A4%EF%B8%8F%20Aku%20suka%20banget!" target="_blank" class="btn-primary" style="background: #25D366; text-decoration: none; justify-content: center;">
+          <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i> Kirim Pesan Manis Lewat WhatsApp
+        </a>
+        <button class="btn-primary" id="localReplyBtn" style="background: linear-gradient(135deg, var(--accent-rose), var(--accent-lavender)); justify-content: center;">
+          <i class="fa-solid fa-heart"></i> Kirim Pelukan Digital Di Sini 💖
+        </button>
+      </div>
+
+      <div id="replySuccessMessage" style="display: none; margin-top: 24px; font-family: var(--font-handwriting); font-size: 2rem; color: var(--primary-pink); animation: pulse 1.5s infinite;">
+        Cinta & pelukan digitalmu telah terkirim! ✨🌹
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <button class="lightbox-close" id="lightboxCloseBtn">&times;</button>
+    <img src="" alt="Zoom Foto" class="lightbox-img" id="lightboxImg">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- Personalizer Modal -->
+  <div class="modal-overlay" id="personalizeModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Pengaturan Ruang Kata 🌹</h3>
+        <button class="close-modal-btn" id="closeModalBtn">&times;</button>
+      </div>
+      <form id="personalizeForm">
+        <div class="form-group">
+          <label for="inputTargetName">Nama Penerima (Orang yang Kamu Suka)</label>
+          <input type="text" id="inputTargetName" class="form-control" value="Shelvia">
+        </div>
+
+        <div class="form-group">
+          <label for="inputSenderName">Nama Pengirim (Namamu)</label>
+          <input type="text" id="inputSenderName" class="form-control" value="Dariku yang Mengagumimu">
+        </div>
+
+        <div class="form-group">
+          <label for="inputHeroTitle">Judul Utama Halaman</label>
+          <input type="text" id="inputHeroTitle" class="form-control" value="Untukmu, Ruang Kata Ini Tercipta.">
+        </div>
+
+        <div class="form-group">
+          <label for="inputTargetDate">Tanggal Countdown Hari Spesial</label>
+          <input type="date" id="inputTargetDate" class="form-control" value="2027-02-14">
+        </div>
+
+        <div class="form-group">
+          <label for="inputLetterContent">Isi Surat Digital</label>
+          <textarea id="inputLetterContent" class="form-control" rows="6">Aku menulis halaman ini bukan untuk dunia, tapi untuk satu jiwa yang membuat semesta terasa indah.
+
+Setiap kata adalah denyut, setiap baris adalah napas, semua menuju satu nama: kamu. Sejak awal kehadiranmu, dunia terasa lebih hangat dan bermakna.
+
+Semoga halaman kecil ini selalu menjadi saksi dan rumah hangat bagi perasaan yang tak pernah selesai.</textarea>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px;">
+          <button type="button" class="btn-primary" id="resetDefaultBtn" style="background: #94a3b8;">
+            Reset Default
+          </button>
+          <button type="submit" class="btn-primary">
+            <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Dibuat dengan <span class="footer-heart">♥</span> khusus untuk <strong class="displayTargetName">Shelvia</strong></p>
+      <p style="font-size: 0.8rem; margin-top: 6px; opacity: 0.7;">"Setiap kata adalah denyut, setiap baris adalah napas..."</p>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
