@@ -85,9 +85,13 @@ function loadAppData() {
       console.error("Failed to parse saved data:", e);
     }
   }
-  // Safeguard: Ensure poems array is populated
-  if (!appData.poems || !Array.isArray(appData.poems) || appData.poems.length === 0) {
-    appData.poems = [...DEFAULT_POEMS];
+  // Safeguard: Ensure poems array is populated and items are valid
+  const hasValidPoems = Array.isArray(appData.poems) && 
+                        appData.poems.length > 0 && 
+                        appData.poems.every(item => item && typeof item.quote === 'string');
+                        
+  if (!hasValidPoems) {
+    appData.poems = JSON.parse(JSON.stringify(DEFAULT_POEMS));
   }
   updateDOMData();
 }
@@ -443,9 +447,10 @@ closeLetterBtn.addEventListener("click", (e) => {
 // ==========================================
 // GALERI PUISI RENDERING & INTERACTION
 // ==========================================
-const poetryGrid = document.getElementById("poetryGrid");
-
 function renderPoems() {
+  const poetryGrid = document.getElementById("poetryGrid");
+  if (!poetryGrid) return;
+
   poetryGrid.innerHTML = "";
   appData.poems.forEach((item, index) => {
     const card = document.createElement("div");
