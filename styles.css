@@ -26,7 +26,9 @@
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Preloader Loading Screen */
+/* ==========================================
+   Preloader Loading Screen: Blooming Flower Intro
+   ========================================== */
 .preloader {
   position: fixed;
   top: 0;
@@ -36,8 +38,10 @@
   background: var(--bg-gradient);
   z-index: 10000;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
@@ -45,31 +49,253 @@
   background: var(--bg-gradient-dark);
 }
 
+/* Decorative falling petals/sparkles across the whole screen */
+.preloader-decor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.deco-item {
+  position: absolute;
+  top: -10%;
+  left: calc(var(--d) * 12% + 3%);
+  font-size: 1.5rem;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(244, 63, 94, 0.25));
+  animation: decoFall calc(3.2s + var(--d) * 0.5s) ease-in infinite;
+  animation-delay: calc(var(--d) * 0.2s);
+}
+
+@keyframes decoFall {
+  0% { transform: translateY(-10vh) rotate(0deg) scale(0.7); opacity: 0; }
+  12% { opacity: 0.9; }
+  100% { transform: translateY(115vh) rotate(360deg) scale(1); opacity: 0.15; }
+}
+
+/* Flower stage container */
+.flower-scene {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 280px;
+  height: 260px;
+}
+
+.flower-glow {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.35) 0%, rgba(251, 191, 36, 0.18) 45%, transparent 72%);
+  filter: blur(8px);
+  opacity: 0;
+  animation: glowPulse 2.6s ease-in-out infinite;
+  animation-delay: 1.3s;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.35; transform: translate(-50%, -50%) scale(0.85); }
+  50% { opacity: 0.75; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* Sparkles that burst outward once the flower blooms */
+.preloader-sparkles {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 10px 2px rgba(251, 191, 36, 0.8);
+  opacity: 0;
+  transform: translate(0, 0) scale(0);
+  animation: sparkleFloat 1.8s ease-out infinite;
+  animation-delay: calc(1.5s + var(--sd, 0s));
+}
+
+@keyframes sparkleFloat {
+  0% { transform: translate(0, 0) scale(0); opacity: 0; }
+  25% { opacity: 1; transform: translate(calc(var(--sx) * 0.3), calc(var(--sy) * 0.3)) scale(1); }
+  100% { transform: translate(var(--sx), var(--sy)) scale(0.3); opacity: 0; }
+}
+
+/* The flower group rises up from below the fold */
+.flower-rise {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(130px);
+  opacity: 0;
+  animation: riseUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes riseUp {
+  0% { transform: translateY(130px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.flower-stem {
+  width: 6px;
+  height: 100px;
+  background: linear-gradient(to top, #22c55e, #86efac);
+  border-radius: 6px;
+  transform-origin: bottom center;
+  transform: scaleY(0);
+  animation: stemGrow 0.75s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 0.1s;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+  order: 3;
+}
+
+@keyframes stemGrow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+.flower-leaf {
+  position: relative;
+  width: 26px;
+  height: 14px;
+  background: linear-gradient(135deg, #86efac, #22c55e);
+  border-radius: 0 100% 0 100%;
+  opacity: 0;
+  order: 3;
+}
+
+.flower-leaf-left {
+  margin: 0 20px -14px -6px;
+  animation: leafPopLeft 0.5s ease forwards;
+  animation-delay: 0.45s;
+}
+
+.flower-leaf-right {
+  margin: 0 -6px -14px 20px;
+  animation: leafPopRight 0.5s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes leafPopLeft {
+  0% { opacity: 0; transform: rotate(20deg) scale(0); }
+  100% { opacity: 1; transform: rotate(20deg) scale(1); }
+}
+
+@keyframes leafPopRight {
+  0% { opacity: 0; transform: rotate(-20deg) scaleX(-1) scale(0); }
+  100% { opacity: 1; transform: rotate(-20deg) scaleX(-1) scale(1); }
+}
+
+/* Blooming flower head: petals widen outward from the center */
+.flower-bloom {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: -18px;
+  order: 1;
+  animation: bloomSway 3s ease-in-out infinite;
+  animation-delay: 1.9s;
+}
+
+@keyframes bloomSway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.petal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 56px;
+  margin: -56px 0 0 -16px;
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  background: radial-gradient(circle at 50% 25%, #fff0f5 0%, var(--accent-rose) 55%, var(--primary-pink) 100%);
+  transform-origin: 50% 100%;
+  transform: rotate(var(--angle)) scale(0);
+  opacity: 0;
+  box-shadow: 0 0 14px rgba(244, 63, 94, 0.35);
+  animation: petalBloom 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: calc(0.9s + var(--i) * 0.07s);
+}
+
+@keyframes petalBloom {
+  0% { transform: rotate(var(--angle)) scale(0); opacity: 0; }
+  55% { opacity: 1; }
+  100% { transform: rotate(var(--angle)) scale(1); opacity: 1; }
+}
+
+.flower-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #fffbea, var(--accent-gold) 70%);
+  box-shadow: 0 0 22px rgba(251, 191, 36, 0.75);
+  transform: scale(0);
+  opacity: 0;
+  animation: centerPop 0.5s ease forwards;
+  animation-delay: 1.55s;
+  z-index: 2;
+}
+
+@keyframes centerPop {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.25); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 .preloader-content {
+  margin-top: 14px;
   text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards;
+  animation-delay: 1.85s;
 }
 
-.preloader-heart {
-  font-size: 3.5rem;
-  color: var(--primary-pink);
-  animation: heartPulse 1.2s ease-in-out infinite alternate;
-  margin-bottom: 20px;
-}
-
-@keyframes heartPulse {
-  0% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(244,63,94,0.3)); }
-  100% { transform: scale(1.35); filter: drop-shadow(0 0 25px rgba(244,63,94,0.8)); }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .preloader-text {
   font-family: var(--font-handwriting);
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--text-dark);
-  margin-bottom: 16px;
+  margin-bottom: 4px;
+}
+
+.preloader-subtext {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-subtle);
+  margin-bottom: 14px;
 }
 
 .preloader-bar {
-  width: 220px;
+  width: 200px;
   height: 4px;
   background: rgba(244,63,94,0.15);
   border-radius: 4px;
@@ -80,7 +306,7 @@
 .preloader-progress {
   width: 100%;
   height: 100%;
-  background: var(--primary-pink);
+  background: linear-gradient(90deg, var(--primary-pink), var(--accent-gold));
   animation: preloaderFill 1.5s ease-in-out infinite;
 }
 

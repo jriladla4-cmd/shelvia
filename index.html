@@ -22,6 +22,59 @@
 </head>
 <body>
 
+  <!-- Preloader Loading Screen: Blooming Flower Intro -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-decor" aria-hidden="true">
+      <span class="deco-item" style="--d:0">🌸</span>
+      <span class="deco-item" style="--d:1">✨</span>
+      <span class="deco-item" style="--d:2">💖</span>
+      <span class="deco-item" style="--d:3">🌷</span>
+      <span class="deco-item" style="--d:4">✨</span>
+      <span class="deco-item" style="--d:5">🌸</span>
+      <span class="deco-item" style="--d:6">💫</span>
+      <span class="deco-item" style="--d:7">🌷</span>
+    </div>
+
+    <div class="flower-scene">
+      <div class="flower-glow"></div>
+
+      <div class="preloader-sparkles" aria-hidden="true">
+        <span class="sparkle" style="--sx:-70px; --sy:-50px; --sd:0s"></span>
+        <span class="sparkle" style="--sx:70px; --sy:-65px; --sd:0.25s"></span>
+        <span class="sparkle" style="--sx:-90px; --sy:20px; --sd:0.5s"></span>
+        <span class="sparkle" style="--sx:90px; --sy:15px; --sd:0.7s"></span>
+        <span class="sparkle" style="--sx:0px; --sy:-95px; --sd:0.35s"></span>
+        <span class="sparkle" style="--sx:-35px; --sy:75px; --sd:0.6s"></span>
+        <span class="sparkle" style="--sx:35px; --sy:80px; --sd:0.15s"></span>
+      </div>
+
+      <div class="flower-rise">
+        <div class="flower-bloom">
+          <span class="petal" style="--angle:0deg; --i:0"></span>
+          <span class="petal" style="--angle:45deg; --i:1"></span>
+          <span class="petal" style="--angle:90deg; --i:2"></span>
+          <span class="petal" style="--angle:135deg; --i:3"></span>
+          <span class="petal" style="--angle:180deg; --i:4"></span>
+          <span class="petal" style="--angle:225deg; --i:5"></span>
+          <span class="petal" style="--angle:270deg; --i:6"></span>
+          <span class="petal" style="--angle:315deg; --i:7"></span>
+          <span class="flower-center"></span>
+        </div>
+        <div class="flower-leaf flower-leaf-left"></div>
+        <div class="flower-leaf flower-leaf-right"></div>
+        <div class="flower-stem"></div>
+      </div>
+    </div>
+
+    <div class="preloader-content">
+      <p class="preloader-text">Ruang Untukmu</p>
+      <p class="preloader-subtext">Menumbuhkan kejutan penuh cinta untukmu... 🌸</p>
+      <div class="preloader-bar">
+        <div class="preloader-progress"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- Animated Canvas Background -->
   <canvas id="canvas-bg"></canvas>
 
@@ -294,11 +347,11 @@ Dengan cinta,
           Cintanya Nyampe Nggak? 💌
         </h2>
         <p style="color: var(--text-subtle); max-width: 600px; margin: 0 auto 28px auto; font-size: 1.05rem;">
-          Kalau halaman ini bikin hatimu hangat, kirim balasan kecil aja lewat WA!
+          Kalau halaman ini bikin hatimu hangat, kirim balasan kecil aja buatku!
         </p>
 
-        <a href="https://wa.me/62881010538745?text=makasih%20sayang" target="_blank" rel="noopener noreferrer" class="btn-primary" id="openReplyBtn" style="padding: 16px 36px; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45); background: #25D366; text-decoration: none;">
-          <i class="fa-brands fa-whatsapp"></i> Makasih Sayang — Kirim WA 💬
+        <a href="https://wa.me/62881010538745?text=makasih%20sayang" target="_blank" rel="noopener noreferrer" class="btn-primary" id="openReplyBtn" style="padding: 16px 36px; font-size: 1.1rem; text-decoration: none;">
+          Makasih Sayang
         </a>
       </div>
     </div>
@@ -377,6 +430,6 @@ Aku sayang kamu. Aku bangga sama kamu.</textarea>
   </footer>
 
   <!-- Custom JavaScript -->
-  <script src="script.js?v=4.0"></script>
+  <script src="script.js?v=4.1"></script>
 </body>
 </html>

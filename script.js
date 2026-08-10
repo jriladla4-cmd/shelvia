@@ -856,28 +856,29 @@ document.querySelectorAll(".mobile-menu-item").forEach(link => {
 });
 
 // ==========================================
-// FAST PRELOADER & SCROLL STORYTELLING OBSERVER
+// BLOOMING FLOWER PRELOADER & SCROLL STORYTELLING OBSERVER
 // ==========================================
+const PRELOADER_HOLD_MS = 2800; // gives the flower time to rise & bloom fully
+
 function hidePreloader() {
   const preloader = document.getElementById("preloader");
   if (preloader && preloader.style.display !== "none") {
     preloader.style.opacity = "0";
     setTimeout(() => {
       preloader.style.display = "none";
-    }, 400);
+    }, 800);
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(hidePreloader, 350);
+function schedulePreloaderHide() {
+  setTimeout(hidePreloader, PRELOADER_HOLD_MS);
   initScrollReveal();
-});
+}
 
-// Fallback safety timeout (500ms max)
-setTimeout(hidePreloader, 500);
-
-if (document.readyState === "complete" || document.readyState === "interactive") {
-  setTimeout(hidePreloader, 200);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", schedulePreloaderHide);
+} else {
+  schedulePreloaderHide();
 }
 
 function initScrollReveal() {
