@@ -1,76 +1,97 @@
 // ==========================================
 // DATA POETRY & REASONS
 // ==========================================
+const CONTENT_VERSION = 2;
+
 const DEFAULT_POEMS = [
   {
-    quote: "Aku menulis halaman ini bukan untuk dunia, tapi untuk satu jiwa yang membuat semesta terasa indah.",
-    category: "Perasaan",
+    quote: "Hari ini kamu hebat. Besok kamu lebih hebat. Aku percaya banget sama langkahmu.",
+    category: "Semangat",
     liked: false
   },
   {
-    quote: "Setiap kata adalah denyut, setiap baris adalah napas, semua menuju satu nama: kamu.",
-    category: "Jiwa",
+    quote: "Kerja kerasmu itu keren. Istirahatmu juga penting. Aku di sini cheering buatmu.",
+    category: "Support",
     liked: false
   },
   {
-    quote: "Di antara ribuan kata, hanya satu yang selalu kutulis: namamu.",
-    category: "Rindu",
+    quote: "Jangan ragukan dirimu. Kamu punya energi yang bisa menembus hari tersulit sekalipun.",
+    category: "Power",
     liked: false
   },
   {
-    quote: "Jika malam punya bintang, maka hatiku punya kamu.",
+    quote: "Setiap target yang kamu kejar, aku doain lancar. Keep going, sayang.",
+    category: "Doa",
+    liked: false
+  },
+  {
+    quote: "Kamu bukan cuma pekerja keras — kamu pejuang yang elegan di setiap deadline.",
+    category: "Keren",
+    liked: false
+  },
+  {
+    quote: "Kalau hari ini berat, tarik napas. Kamu sudah sejauh ini. Aku bangga sama kamu.",
+    category: "Bangga",
+    liked: false
+  },
+  {
+    quote: "Fokus. Tenang. Maju. Dunia kerja butuh orang seperti kamu — kuat dan hangat.",
+    category: "Fokus",
+    liked: false
+  },
+  {
+    quote: "Suksesmu bukan soal buru-buru. Tapi soal konsisten. Dan kamu sudah di jalur yang benar.",
+    category: "Konsisten",
+    liked: false
+  },
+  {
+    quote: "Saat kamu lelah, ingat: istirahat bukan menyerah. Itu strategi juara.",
+    category: "Istirahat",
+    liked: false
+  },
+  {
+    quote: "Aku nggak cuma sayang sama senyummu — aku kagum sama semangat kerjamu.",
     category: "Kagum",
-    liked: false
-  },
-  {
-    quote: "Aku ingin setiap halaman ini menjadi saksi, bahwa aku pernah jatuh cinta sedalam ini.",
-    category: "Abadi",
-    liked: false
-  },
-  {
-    quote: "Senyummu adalah cahaya yang menyalakan seluruh halaman ini.",
-    category: "Cahaya",
-    liked: false
-  },
-  {
-    quote: "Langkahmu adalah irama yang membuat waktu terasa begitu indah.",
-    category: "Melodi",
-    liked: false
-  },
-  {
-    quote: "Semoga halaman ini selalu jadi rumah bagi perasaan yang tak pernah selesai.",
-    category: "Harapan",
     liked: false
   }
 ];
 
 const SECRET_REASONS = [
-  "Ayo kita cari jajanan favorit, terus lanjut menikmati sunset sambil ngobrol dan ketawa bareng. 🌇🍟💛",
-  "Hari ini yuk keliling sore bareng sambil minum kopi/teh favoritmu ☕✨",
-  "Ada waktu luang weekend ini? Aku mau ajak kamu kulineran ke tempat manis 🍨🌸",
-  "Gimana kalau nanti kita keliling kota sambil dengerin lagu kesukaanmu? 🚗🎵",
-  "Aku mau ajak kamu nonton film bioskop seru, kamu yang pilih filmnya ya 🎬🍿",
-  "Yuk cari tempat estetik sambil foto-foto lucu bareng hari ini 📸🌹",
-  "Mau nggak nanti malam kita cari makanan hangat sambil cerita-cerita santai? 🍜✨",
-  "Weekend ini santai ke taman/pantai menikmati senja bareng yuk 🌅💫",
-  "Aku punya daftar tempat kuliner lucu yang pengen banget kudatangi bareng kamu 🎁✨",
-  "Yuk cari gelato/ice cream manis sore ini 🍦🌸",
-  "Nanti kalau ada waktu luang, aku jemput ya! Kita cari suasana baru bareng 🚲✨"
+  "Hari ini kerja keras dulu, nanti malam aku traktir kamu makan enak biar semangat pulih 🍜✨",
+  "Kalau deadline lagi ngejar, aku siap jadi cheerleadermu — gas terus, kamu pasti bisa! 💪🔥",
+  "Setelah kerja, yuk coffee break bareng. Otak butuh recharge, hati juga ☕💛",
+  "Weekend ini reward buat diri sendiri: istirahat cukup, jalan santai, no stress 🌿✨",
+  "Buka to-do list, centang satu-satu. Kamu lebih produktif dari yang kamu sadari 📝🚀",
+  "Kalau lagi stuck di kerjaan, bilang aja. Aku dengerin, kamu nggak sendirian 💬💖",
+  "Outfit kerja kece + mindset juara = combo mematikan. Kamu punya keduanya 👔✨",
+  "Target besar dimulai dari langkah kecil hari ini. Aku percaya kamu 🎯💫",
+  "Jangan lupa minum air & makan siang ya. Semangat kerja butuh badan yang dijaga 🥤🍱",
+  "Kalau boss lagi ribet, ingat: kamu lebih kuat dari tekanan itu. Stay cool 😎🔥",
+  "Selesai kerja nanti, kita rayakan progress kecilmu — karena setiap progress itu menang 🎉💛"
 ];
+
+const DEFAULT_LETTER = `Hai sayang,
+
+Aku bikin halaman ini buat kamu — orang yang aku sayang, yang tiap hari berjuang dengan hati kuat.
+
+Kerja boleh berat, target boleh tinggi, tapi ingat: kamu nggak jalan sendirian. Aku bangga sama semangatmu, sama caramu bangkit, sama caramu tetap hangat meski hari terasa padat.
+
+Kalau lagi lelah, istirahat. Kalau lagi ragu, ingat siapa dirimu. Kalau lagi maju, gas terus — aku cheering dari belakang.
+
+Semoga setiap pagi memberimu energi baru, setiap sore memberimu rasa bangga, dan setiap malam memberimu ketenangan.
+
+Keep shining. Keep working smart. Keep being you.
+
+Dari orang yang selalu dukungmu 💪✨`;
 
 // Default Data State
 let appData = {
-  targetName: "Shelvia",
-  senderName: "Dariku yang Mengagumimu",
-  heroTitle: "Untukmu, Ruang Kata Ini Tercipta.",
-  heroSubtitle: '"Setiap huruf adalah denyut, setiap baris adalah napas, semua menuju satu nama: kamu."',
-  letterContent: `Aku menulis halaman ini bukan untuk dunia, tapi untuk satu jiwa yang membuat semesta terasa indah.
-
-Setiap kata adalah denyut, setiap baris adalah napas, semua menuju satu nama: kamu. Sejak awal kehadiranmu, dunia terasa lebih hangat dan bermakna. Senyummu adalah cahaya yang menyalakan seluruh halaman ini, dan tawamu adalah lagu terindah yang selalu ingin kudengar berulang kali.
-
-Jika malam punya bintang untuk menerangi gelapnya, maka hatiku punya kamu untuk menghiasi setiap detik kehidupan ini.
-
-Semoga halaman kecil ini selalu menjadi saksi dan rumah hangat bagi perasaan yang tak pernah selesai.`,
+  contentVersion: CONTENT_VERSION,
+  targetName: "Sayang",
+  senderName: "Yang selalu dukungmu",
+  heroTitle: "Semangat Kerja Buat Orang yang Kusayang.",
+  heroSubtitle: '"Kerja kerasmu keren. Semangatmu menginspirasi. Aku selalu di sini cheering buatmu."',
+  letterContent: DEFAULT_LETTER,
   targetDate: "2027-02-14",
   poems: [...DEFAULT_POEMS]
 };
@@ -81,6 +102,28 @@ function loadAppData() {
   if (saved) {
     try {
       const parsed = JSON.parse(saved);
+      // Refresh when content version changes or old Shelvia data is still stored
+      const needsContentRefresh =
+        parsed.contentVersion !== CONTENT_VERSION ||
+        parsed.targetName === "Shelvia";
+
+      if (needsContentRefresh) {
+        localStorage.removeItem("ruangKataData");
+        appData = {
+          contentVersion: CONTENT_VERSION,
+          targetName: "Sayang",
+          senderName: "Yang selalu dukungmu",
+          heroTitle: "Semangat Kerja Buat Orang yang Kusayang.",
+          heroSubtitle: '"Kerja kerasmu keren. Semangatmu menginspirasi. Aku selalu di sini cheering buatmu."',
+          letterContent: DEFAULT_LETTER,
+          targetDate: parsed.targetDate || "2027-02-14",
+          poems: JSON.parse(JSON.stringify(DEFAULT_POEMS))
+        };
+        saveAppData();
+        updateDOMData();
+        return;
+      }
+
       // Auto-fix: if the saved data has invalid/empty poems, wipe it out
       if (parsed.poems) {
         const hasValidPoems = Array.isArray(parsed.poems) && 
@@ -614,7 +657,7 @@ function exportToWord() {
           ${formattedDate}
         </div>
         <div class="salutation">
-          Untuk Jiwa yang Paling Spesial, ${targetName} ✨
+          Semangat buat kamu, ${targetName} 💪✨
         </div>
         <div class="content">
           ${letterContent.replace(/\n/g, '<br>')}
@@ -741,11 +784,12 @@ if (personalizeModal) {
 if (personalizeForm) {
   personalizeForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    appData.targetName = document.getElementById("inputTargetName")?.value || "Shelvia";
-    appData.senderName = document.getElementById("inputSenderName")?.value || "Dariku";
-    appData.heroTitle = document.getElementById("inputHeroTitle")?.value || "Untukmu, Ruang Kata Ini Tercipta.";
+    appData.targetName = document.getElementById("inputTargetName")?.value || "Sayang";
+    appData.senderName = document.getElementById("inputSenderName")?.value || "Yang selalu dukungmu";
+    appData.heroTitle = document.getElementById("inputHeroTitle")?.value || "Semangat Kerja Buat Orang yang Kusayang.";
     appData.letterContent = document.getElementById("inputLetterContent")?.value || "";
     appData.targetDate = document.getElementById("inputTargetDate")?.value || "2027-02-14";
+    appData.contentVersion = CONTENT_VERSION;
 
     saveAppData();
     if (personalizeModal) personalizeModal.style.display = "none";
