@@ -1,7 +1,7 @@
 // ==========================================
 // DATA POETRY & REASONS
 // ==========================================
-const CONTENT_VERSION = 2;
+const CONTENT_VERSION = 3;
 
 const DEFAULT_POEMS = [
   {
@@ -20,7 +20,7 @@ const DEFAULT_POEMS = [
     liked: false
   },
   {
-    quote: "Setiap target yang kamu kejar, aku doain lancar. Keep going, sayang.",
+    quote: "Setiap target yang kamu kejar, aku doain lancar. Keep going, Lisa.",
     category: "Doa",
     liked: false
   },
@@ -70,7 +70,7 @@ const SECRET_REASONS = [
   "Selesai kerja nanti, kita rayakan progress kecilmu — karena setiap progress itu menang 🎉💛"
 ];
 
-const DEFAULT_LETTER = `Hai sayang,
+const DEFAULT_LETTER = `Hai Lisa,
 
 Aku bikin halaman ini buat kamu — orang yang aku sayang, yang tiap hari berjuang dengan hati kuat.
 
@@ -87,7 +87,7 @@ Dari orang yang selalu dukungmu 💪✨`;
 // Default Data State
 let appData = {
   contentVersion: CONTENT_VERSION,
-  targetName: "Sayang",
+  targetName: "Lisa",
   senderName: "Yang selalu dukungmu",
   heroTitle: "Semangat Kerja Buat Orang yang Kusayang.",
   heroSubtitle: '"Kerja kerasmu keren. Semangatmu menginspirasi. Aku selalu di sini cheering buatmu."',
@@ -105,13 +105,14 @@ function loadAppData() {
       // Refresh when content version changes or old Shelvia data is still stored
       const needsContentRefresh =
         parsed.contentVersion !== CONTENT_VERSION ||
-        parsed.targetName === "Shelvia";
+        parsed.targetName === "Shelvia" ||
+        parsed.targetName === "Sayang";
 
       if (needsContentRefresh) {
         localStorage.removeItem("ruangKataData");
         appData = {
           contentVersion: CONTENT_VERSION,
-          targetName: "Sayang",
+          targetName: "Lisa",
           senderName: "Yang selalu dukungmu",
           heroTitle: "Semangat Kerja Buat Orang yang Kusayang.",
           heroSubtitle: '"Kerja kerasmu keren. Semangatmu menginspirasi. Aku selalu di sini cheering buatmu."',
@@ -784,7 +785,7 @@ if (personalizeModal) {
 if (personalizeForm) {
   personalizeForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    appData.targetName = document.getElementById("inputTargetName")?.value || "Sayang";
+    appData.targetName = document.getElementById("inputTargetName")?.value || "Lisa";
     appData.senderName = document.getElementById("inputSenderName")?.value || "Yang selalu dukungmu";
     appData.heroTitle = document.getElementById("inputHeroTitle")?.value || "Semangat Kerja Buat Orang yang Kusayang.";
     appData.letterContent = document.getElementById("inputLetterContent")?.value || "";
