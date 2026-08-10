@@ -1,96 +1,98 @@
 // ==========================================
 // DATA POETRY & REASONS
 // ==========================================
-const CONTENT_VERSION = 3;
+const CONTENT_VERSION = 4;
 
 const DEFAULT_POEMS = [
   {
-    quote: "Hari ini kamu hebat. Besok kamu lebih hebat. Aku percaya banget sama langkahmu.",
+    quote: "Aku sayang kamu — dan aku bangga banget kamu sudah berani kerja, berjuang, dan tumbuh.",
+    category: "Cinta",
+    liked: false
+  },
+  {
+    quote: "Di antara semua orang, hatiku paling tenang kalau lagi mikirin kamu.",
+    category: "Rindu",
+    liked: false
+  },
+  {
+    quote: "Kerja boleh berat, tapi cintaku buatmu selalu ringan dan setia.",
+    category: "Dukungan",
+    liked: false
+  },
+  {
+    quote: "Setiap target yang kamu kejar, aku doain lancar. Keep going, Lisa. Aku selalu di sini.",
     category: "Semangat",
     liked: false
   },
   {
-    quote: "Kerja kerasmu itu keren. Istirahatmu juga penting. Aku di sini cheering buatmu.",
-    category: "Support",
-    liked: false
-  },
-  {
-    quote: "Jangan ragukan dirimu. Kamu punya energi yang bisa menembus hari tersulit sekalipun.",
-    category: "Power",
-    liked: false
-  },
-  {
-    quote: "Setiap target yang kamu kejar, aku doain lancar. Keep going, Lisa.",
-    category: "Doa",
-    liked: false
-  },
-  {
-    quote: "Kamu bukan cuma pekerja keras — kamu pejuang yang elegan di setiap deadline.",
-    category: "Keren",
-    liked: false
-  },
-  {
-    quote: "Kalau hari ini berat, tarik napas. Kamu sudah sejauh ini. Aku bangga sama kamu.",
-    category: "Bangga",
-    liked: false
-  },
-  {
-    quote: "Fokus. Tenang. Maju. Dunia kerja butuh orang seperti kamu — kuat dan hangat.",
-    category: "Fokus",
-    liked: false
-  },
-  {
-    quote: "Suksesmu bukan soal buru-buru. Tapi soal konsisten. Dan kamu sudah di jalur yang benar.",
-    category: "Konsisten",
-    liked: false
-  },
-  {
-    quote: "Saat kamu lelah, ingat: istirahat bukan menyerah. Itu strategi juara.",
-    category: "Istirahat",
-    liked: false
-  },
-  {
-    quote: "Aku nggak cuma sayang sama senyummu — aku kagum sama semangat kerjamu.",
+    quote: "Senyummu adalah rumahku. Semangat kerjamu adalah kebanggaanku.",
     category: "Kagum",
+    liked: false
+  },
+  {
+    quote: "Kalau hari ini lelah, istirahat di hatiku dulu. Besok kita gas lagi bareng.",
+    category: "Hangat",
+    liked: false
+  },
+  {
+    quote: "Kamu bukan cuma pekerja keras — kamu orang yang aku cintai dengan tulus.",
+    category: "Cinta",
+    liked: false
+  },
+  {
+    quote: "Fokus. Tenang. Maju. Aku percaya kamu — karena aku sayang kamu.",
+    category: "Semangat",
+    liked: false
+  },
+  {
+    quote: "Suksesmu indah, tapi yang lebih indah: kamu tetap jadi kamu yang aku sayang.",
+    category: "Harapan",
+    liked: false
+  },
+  {
+    quote: "Aku nggak cuma sayang sama senyummu — aku kagum sama caramu berjuang tiap hari.",
+    category: "Bangga",
     liked: false
   }
 ];
 
 const SECRET_REASONS = [
-  "Hari ini kerja keras dulu, nanti malam aku traktir kamu makan enak biar semangat pulih 🍜✨",
-  "Kalau deadline lagi ngejar, aku siap jadi cheerleadermu — gas terus, kamu pasti bisa! 💪🔥",
-  "Setelah kerja, yuk coffee break bareng. Otak butuh recharge, hati juga ☕💛",
-  "Weekend ini reward buat diri sendiri: istirahat cukup, jalan santai, no stress 🌿✨",
-  "Buka to-do list, centang satu-satu. Kamu lebih produktif dari yang kamu sadari 📝🚀",
-  "Kalau lagi stuck di kerjaan, bilang aja. Aku dengerin, kamu nggak sendirian 💬💖",
-  "Outfit kerja kece + mindset juara = combo mematikan. Kamu punya keduanya 👔✨",
-  "Target besar dimulai dari langkah kecil hari ini. Aku percaya kamu 🎯💫",
-  "Jangan lupa minum air & makan siang ya. Semangat kerja butuh badan yang dijaga 🥤🍱",
-  "Kalau boss lagi ribet, ingat: kamu lebih kuat dari tekanan itu. Stay cool 😎🔥",
-  "Selesai kerja nanti, kita rayakan progress kecilmu — karena setiap progress itu menang 🎉💛"
+  "Habis kerja nanti, aku traktir kamu makan enak — reward buat pejuang kecilku 🍜💖",
+  "Kalau deadline ngejar, ingat: aku sayang kamu, dan aku percaya kamu pasti bisa 💪💛",
+  "Coffee break bareng yuk. Biar hati & otak sama-sama penuh lagi ☕💕",
+  "Weekend ini kita santai bareng — kamu pantas istirahat setelah kerja keras 🌿✨",
+  "Satu pelukan digital buatmu: kamu hebat, kamu dicintai, kamu nggak sendirian 🤗💖",
+  "Kalau lagi stuck, bilang aja. Aku dengerin — karena sayang itu hadir, bukan cuma kata 💬🌹",
+  "Outfit kerja kece + hati yang aku jaga = kamu tetap bersinar 👔✨",
+  "Target besar boleh, tapi jangan lupa: aku bangga sama setiap langkah kecilmu 🎯💫",
+  "Jaga badanmu ya. Aku sayang kamu — termasuk kesehatanmu 🥤💛",
+  "Kalau hari ini berat, malam ini aku temenin cerita. Kerja selesai, cinta tetap jalan 🌙💖",
+  "Selesai kerja nanti kita rayakan — bukan cuma progress, tapi karena aku sayang kamu 🎉💕"
 ];
 
 const DEFAULT_LETTER = `Hai Lisa,
 
-Aku bikin halaman ini buat kamu — orang yang aku sayang, yang tiap hari berjuang dengan hati kuat.
+Halaman kecil ini aku tulis buat kamu — orang yang aku sayang, yang sekarang sudah mulai bekerja dan berjuang tiap hari.
 
-Kerja boleh berat, target boleh tinggi, tapi ingat: kamu nggak jalan sendirian. Aku bangga sama semangatmu, sama caramu bangkit, sama caramu tetap hangat meski hari terasa padat.
+Aku bangga sama kamu. Bukan cuma karena kamu kuat menghadapi kerjaan, tapi karena kamu tetap hangat, tetap jadi kamu yang aku cintai.
 
-Kalau lagi lelah, istirahat. Kalau lagi ragu, ingat siapa dirimu. Kalau lagi maju, gas terus — aku cheering dari belakang.
+Kalau lelah, istirahat. Kalau ragu, ingat aku selalu dukungmu. Kalau maju, gas terus — tapi jangan lupa: di belakang semua target itu, ada orang yang sayang kamu apa adanya.
 
-Semoga setiap pagi memberimu energi baru, setiap sore memberimu rasa bangga, dan setiap malam memberimu ketenangan.
+Semoga kerjaanmu lancar, hatimu tenang, dan tiap malam kamu pulang dengan rasa cukup dicintai.
 
-Keep shining. Keep working smart. Keep being you.
+Aku sayang kamu.
+Aku bangga sama kamu.
+Terus jadi hebat — tapi jangan lupa istirahat di hatiku juga.
 
-Dari orang yang selalu dukungmu 💪✨`;
+Dengan cinta,`;
 
 // Default Data State
 let appData = {
   contentVersion: CONTENT_VERSION,
   targetName: "Lisa",
-  senderName: "Yang selalu dukungmu",
-  heroTitle: "Semangat Kerja Buat Orang yang Kusayang.",
-  heroSubtitle: '"Kerja kerasmu keren. Semangatmu menginspirasi. Aku selalu di sini cheering buatmu."',
+  senderName: "Yang selalu menyayangimu",
+  heroTitle: "Untukmu, ruang cinta & semangat ini tercipta.",
+  heroSubtitle: '"Aku sayang kamu. Aku bangga kamu sudah bekerja. Terus kuat — aku selalu di sini."',
   letterContent: DEFAULT_LETTER,
   targetDate: "2027-02-14",
   poems: [...DEFAULT_POEMS]
@@ -113,9 +115,9 @@ function loadAppData() {
         appData = {
           contentVersion: CONTENT_VERSION,
           targetName: "Lisa",
-          senderName: "Yang selalu dukungmu",
-          heroTitle: "Semangat Kerja Buat Orang yang Kusayang.",
-          heroSubtitle: '"Kerja kerasmu keren. Semangatmu menginspirasi. Aku selalu di sini cheering buatmu."',
+          senderName: "Yang selalu menyayangimu",
+          heroTitle: "Untukmu, ruang cinta & semangat ini tercipta.",
+          heroSubtitle: '"Aku sayang kamu. Aku bangga kamu sudah bekerja. Terus kuat — aku selalu di sini."',
           letterContent: DEFAULT_LETTER,
           targetDate: parsed.targetDate || "2027-02-14",
           poems: JSON.parse(JSON.stringify(DEFAULT_POEMS))
@@ -658,7 +660,7 @@ function exportToWord() {
           ${formattedDate}
         </div>
         <div class="salutation">
-          Semangat buat kamu, ${targetName} 💪✨
+          Untukmu dengan cinta, ${targetName} 💕✨
         </div>
         <div class="content">
           ${letterContent.replace(/\n/g, '<br>')}
@@ -786,8 +788,8 @@ if (personalizeForm) {
   personalizeForm.addEventListener("submit", (e) => {
     e.preventDefault();
     appData.targetName = document.getElementById("inputTargetName")?.value || "Lisa";
-    appData.senderName = document.getElementById("inputSenderName")?.value || "Yang selalu dukungmu";
-    appData.heroTitle = document.getElementById("inputHeroTitle")?.value || "Semangat Kerja Buat Orang yang Kusayang.";
+    appData.senderName = document.getElementById("inputSenderName")?.value || "Yang selalu menyayangimu";
+    appData.heroTitle = document.getElementById("inputHeroTitle")?.value || "Untukmu, ruang cinta & semangat ini tercipta.";
     appData.letterContent = document.getElementById("inputLetterContent")?.value || "";
     appData.targetDate = document.getElementById("inputTargetDate")?.value || "2027-02-14";
     appData.contentVersion = CONTENT_VERSION;
@@ -923,39 +925,17 @@ if (muteToggleBtn) {
 }
 
 // ==========================================
-// INTERACTIVE REPLY MODAL HANDLERS
+// WHATSAPP REPLY — DIRECT REDIRECT
 // ==========================================
+const WA_NUMBER = "62881010538745";
+const WA_MESSAGE = "makasih sayang";
+const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
+
 const openReplyBtn = document.getElementById("openReplyBtn");
-const replyModal = document.getElementById("replyModal");
-const closeReplyModalBtn = document.getElementById("closeReplyModalBtn");
-const localReplyBtn = document.getElementById("localReplyBtn");
-const replySuccessMessage = document.getElementById("replySuccessMessage");
-
-if (openReplyBtn && replyModal) {
+if (openReplyBtn) {
+  openReplyBtn.setAttribute("href", WA_URL);
   openReplyBtn.addEventListener("click", () => {
-    replyModal.style.display = "flex";
-  });
-}
-
-if (closeReplyModalBtn && replyModal) {
-  closeReplyModalBtn.addEventListener("click", () => {
-    replyModal.style.display = "none";
-  });
-}
-
-if (replyModal) {
-  replyModal.addEventListener("click", (e) => {
-    if (e.target === replyModal) replyModal.style.display = "none";
-  });
-}
-
-if (localReplyBtn && replySuccessMessage) {
-  localReplyBtn.addEventListener("click", (e) => {
-    playSoftChime();
-    for (let i = 0; i < 25; i++) {
-      spawnFloatingHeart(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2);
-    }
-    replySuccessMessage.style.display = "block";
+    if (typeof playSoftChime === "function") playSoftChime();
   });
 }
 
