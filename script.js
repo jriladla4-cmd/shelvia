@@ -1,98 +1,94 @@
 // ==========================================
 // DATA POETRY & REASONS
 // ==========================================
-const CONTENT_VERSION = 4;
+const CONTENT_VERSION = 6;
 
 const DEFAULT_POEMS = [
   {
-    quote: "Aku sayang kamu — dan aku bangga banget kamu sudah berani kerja, berjuang, dan tumbuh.",
-    category: "Cinta",
+    quote: "Nggak tahu sejak kapan, tapi notif dari kamu jadi yang paling aku tunggu.",
+    category: "Deg-degan",
     liked: false
   },
   {
-    quote: "Di antara semua orang, hatiku paling tenang kalau lagi mikirin kamu.",
-    category: "Rindu",
+    quote: "Ngobrol sama kamu tuh gampang banget bikin lupa waktu.",
+    category: "Nyaman",
     liked: false
   },
   {
-    quote: "Kerja boleh berat, tapi cintaku buatmu selalu ringan dan setia.",
-    category: "Dukungan",
+    quote: "Aku belum tahu banyak tentang kamu, tapi aku pengen tahu semuanya, pelan-pelan.",
+    category: "Penasaran",
     liked: false
   },
   {
-    quote: "Setiap target yang kamu kejar, aku doain lancar. Keep going, Lisa. Aku selalu di sini.",
-    category: "Semangat",
+    quote: "Sefia Aliyah, boleh nggak aku jadi orang pertama yang kamu chat kalau lagi pengen cerita?",
+    category: "Mau Dekat",
     liked: false
   },
   {
-    quote: "Senyummu adalah rumahku. Semangat kerjamu adalah kebanggaanku.",
+    quote: "Senyummu itu bahaya. Sekali lihat, kepikiran seharian.",
     category: "Kagum",
     liked: false
   },
   {
-    quote: "Kalau hari ini lelah, istirahat di hatiku dulu. Besok kita gas lagi bareng.",
+    quote: "Kalau kamu lagi cerita, aku bisa dengerin berjam-jam tanpa bosan.",
     category: "Hangat",
     liked: false
   },
   {
-    quote: "Kamu bukan cuma pekerja keras — kamu orang yang aku cintai dengan tulus.",
-    category: "Cinta",
+    quote: "Aku nggak buru-buru. Aku cuma pengen jadi orang yang kamu cari kalau lagi butuh teman ngobrol.",
+    category: "Tulus",
     liked: false
   },
   {
-    quote: "Fokus. Tenang. Maju. Aku percaya kamu — karena aku sayang kamu.",
-    category: "Semangat",
+    quote: "Aku suka cara kamu ketawa pas lagi cerita. Itu salah satu hal favoritku.",
+    category: "Kagum",
     liked: false
   },
   {
-    quote: "Suksesmu indah, tapi yang lebih indah: kamu tetap jadi kamu yang aku sayang.",
+    quote: "Semoga suatu hari aku bisa bilang semua ini langsung, sambil lihat kamu senyum.",
     category: "Harapan",
     liked: false
   },
   {
-    quote: "Aku nggak cuma sayang sama senyummu — aku kagum sama caramu berjuang tiap hari.",
-    category: "Bangga",
+    quote: "Kalau boleh jujur, kamu salah satu alasan aku buru-buru buka HP tiap pagi.",
+    category: "Jujur",
     liked: false
   }
 ];
 
 const SECRET_REASONS = [
-  "Habis kerja nanti, aku traktir kamu makan enak — reward buat pejuang kecilku 🍜💖",
-  "Kalau deadline ngejar, ingat: aku sayang kamu, dan aku percaya kamu pasti bisa 💪💛",
-  "Coffee break bareng yuk. Biar hati & otak sama-sama penuh lagi ☕💕",
-  "Weekend ini kita santai bareng — kamu pantas istirahat setelah kerja keras 🌿✨",
-  "Satu pelukan digital buatmu: kamu hebat, kamu dicintai, kamu nggak sendirian 🤗💖",
-  "Kalau lagi stuck, bilang aja. Aku dengerin — karena sayang itu hadir, bukan cuma kata 💬🌹",
-  "Outfit kerja kece + hati yang aku jaga = kamu tetap bersinar 👔✨",
-  "Target besar boleh, tapi jangan lupa: aku bangga sama setiap langkah kecilmu 🎯💫",
-  "Jaga badanmu ya. Aku sayang kamu — termasuk kesehatanmu 🥤💛",
-  "Kalau hari ini berat, malam ini aku temenin cerita. Kerja selesai, cinta tetap jalan 🌙💖",
-  "Selesai kerja nanti kita rayakan — bukan cuma progress, tapi karena aku sayang kamu 🎉💕"
+  "Kapan-kapan ngopi bareng yuk? Aku yang traktir, kamu yang cerita ☕",
+  "Weekend ini ada waktu kosong nggak? Jalan sore sebentar aja 🌿",
+  "Kalau lagi bosen, chat aku aja. Aku siap dengerin kapan pun 💬",
+  "Boleh minta rekomendasi lagu favoritmu? Pengen tahu kamu suka dengerin apa 🎧",
+  "Kamu lebih suka nonton film atau jalan-jalan? Biar aku tahu harus ngajak ke mana 🎬",
+  "Aku lagi mikir mau ngajak kamu makan enak. Kamu suka apa? 🍜",
+  "Besok malem telponan sebentar mau? Pengen denger suaramu 📞",
+  "Foto kamu yang mana yang paling kamu suka? Aku penasaran banget 📸",
+  "Kalau boleh jujur, aku suka banget pas kamu balas chatku cepat 😊",
+  "Mau ikut aku lihat sunset? Janji nggak awkward, cuma duduk berdua 🌅",
+  "Makasih ya udah mau ngobrol sama aku. Itu berarti banget buatku 🌷"
 ];
 
-const DEFAULT_LETTER = `Hai Lisa,
+const DEFAULT_LETTER = `Hai Sefia Aliyah,
 
-Halaman kecil ini aku tulis buat kamu — orang yang aku sayang, yang sekarang sudah mulai bekerja dan berjuang tiap hari.
+Jujur aku agak bingung mulai dari mana. Halaman kecil ini aku bikin karena ada hal yang susah aku bilang langsung.
 
-Aku bangga sama kamu. Bukan cuma karena kamu kuat menghadapi kerjaan, tapi karena kamu tetap hangat, tetap jadi kamu yang aku cintai.
+Belakangan ini, ngobrol sama kamu jadi bagian favorit di hariku. Hal kecil kayak nunggu balasan chatmu aja bisa bikin aku senyum sendiri.
 
-Kalau lelah, istirahat. Kalau ragu, ingat aku selalu dukungmu. Kalau maju, gas terus — tapi jangan lupa: di belakang semua target itu, ada orang yang sayang kamu apa adanya.
+Kadang aku kepikiran kamu pas lagi sendirian, terus mikir: gimana ya caranya biar kita makin akrab tanpa bikin kamu canggung.
 
-Semoga kerjaanmu lancar, hatimu tenang, dan tiap malam kamu pulang dengan rasa cukup dicintai.
+Aku nggak mau buru-buru. Aku cuma pengen kenal kamu lebih dekat, pelan-pelan, kalau kamu juga mau.
 
-Aku sayang kamu.
-Aku bangga sama kamu.
-Terus jadi hebat — tapi jangan lupa istirahat di hatiku juga.
-
-Dengan cinta,`;
+Kapan-kapan ngopi bareng, yuk?`;
 
 // Default Data State
 let appData = {
   contentVersion: CONTENT_VERSION,
-  targetName: "Lisa",
-  senderName: "Yang selalu menyayangimu",
-  heroTitle: "Untukmu, ruang cinta & semangat ini tercipta.",
-  heroSubtitle: '"Aku sayang kamu. Aku bangga kamu sudah bekerja. Terus kuat — aku selalu di sini."',
+  targetName: "Sefia Aliyah",
+  senderName: "Seseorang yang pengen kenal kamu",
+  heroTitle: "Halaman kecil ini, khusus buat kamu.",
+  heroSubtitle: '"Nggak tahu kenapa, tiap ngobrol sama kamu hariku jadi lebih enak. Boleh kenal lebih dekat?"',
   letterContent: DEFAULT_LETTER,
   targetDate: "2027-02-14",
   poems: [...DEFAULT_POEMS]
@@ -108,16 +104,18 @@ function loadAppData() {
       const needsContentRefresh =
         parsed.contentVersion !== CONTENT_VERSION ||
         parsed.targetName === "Shelvia" ||
+        parsed.targetName === "Lisa" ||
+        parsed.targetName === "sefiaaziliyahadarah" ||
         parsed.targetName === "Sayang";
 
       if (needsContentRefresh) {
         localStorage.removeItem("ruangKataData");
         appData = {
           contentVersion: CONTENT_VERSION,
-          targetName: "Lisa",
-          senderName: "Yang selalu menyayangimu",
-          heroTitle: "Untukmu, ruang cinta & semangat ini tercipta.",
-          heroSubtitle: '"Aku sayang kamu. Aku bangga kamu sudah bekerja. Terus kuat — aku selalu di sini."',
+          targetName: "Sefia Aliyah",
+          senderName: "Seseorang yang pengen kenal kamu",
+          heroTitle: "Halaman kecil ini, khusus buat kamu.",
+          heroSubtitle: '"Nggak tahu kenapa, tiap ngobrol sama kamu hariku jadi lebih enak. Boleh kenal lebih dekat?"',
           letterContent: DEFAULT_LETTER,
           targetDate: parsed.targetDate || "2027-02-14",
           poems: JSON.parse(JSON.stringify(DEFAULT_POEMS))
@@ -660,13 +658,13 @@ function exportToWord() {
           ${formattedDate}
         </div>
         <div class="salutation">
-          Untukmu dengan cinta, ${targetName} 💕✨
+          Buat kamu, ${targetName} 🌷
         </div>
         <div class="content">
           ${letterContent.replace(/\n/g, '<br>')}
         </div>
         <div class="signature">
-          Dengan segenap rindu,<br>
+          Dari yang lagi deg-degan,<br>
           <strong>${senderName}</strong> 🌹
         </div>
       </div>
@@ -787,9 +785,9 @@ if (personalizeModal) {
 if (personalizeForm) {
   personalizeForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    appData.targetName = document.getElementById("inputTargetName")?.value || "Lisa";
-    appData.senderName = document.getElementById("inputSenderName")?.value || "Yang selalu menyayangimu";
-    appData.heroTitle = document.getElementById("inputHeroTitle")?.value || "Untukmu, ruang cinta & semangat ini tercipta.";
+    appData.targetName = document.getElementById("inputTargetName")?.value || "Sefia Aliyah";
+    appData.senderName = document.getElementById("inputSenderName")?.value || "Seseorang yang pengen kenal kamu";
+    appData.heroTitle = document.getElementById("inputHeroTitle")?.value || "Halaman kecil ini, khusus buat kamu.";
     appData.letterContent = document.getElementById("inputLetterContent")?.value || "";
     appData.targetDate = document.getElementById("inputTargetDate")?.value || "2027-02-14";
     appData.contentVersion = CONTENT_VERSION;
@@ -929,7 +927,7 @@ if (muteToggleBtn) {
 // WHATSAPP REPLY — DIRECT REDIRECT
 // ==========================================
 const WA_NUMBER = "62881010538745";
-const WA_MESSAGE = "makasih sayang";
+const WA_MESSAGE = "makasih ya, aku senyum bacanya";
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;
 
 const openReplyBtn = document.getElementById("openReplyBtn");
